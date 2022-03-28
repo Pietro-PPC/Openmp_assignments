@@ -1,0 +1,37 @@
+$ time ./par2 < inputs/inp_1.in 
+real    1m14,131s
+user    3m26,108s
+sys     0m0,108s
+
+$ time ./par3 < inputs/inp_1.in 
+real    1m9,772s
+user    3m10,619s
+sys     0m0,120s
+
+$ time ./par2 < inputs/inp_2.in 
+58
+
+real    0m32,187s
+user    0m34,491s
+sys     0m0,000s
+
+$ time ./par3 < inputs/inp_2.in 
+58
+
+real    0m22,289s
+user    0m33,379s
+sys     0m0,012s
+
+$ time ./par2 < inputs/inp_3.in 
+48
+
+real    0m0,786s
+user    0m1,071s
+sys     0m0,004s
+
+$ time ./par3 < inputs/inp_3.in 
+48
+
+real    0m0,320s
+user    0m1,105s
+sys     0m0,001s

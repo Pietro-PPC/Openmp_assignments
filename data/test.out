@@ -1,0 +1,17 @@
+---------- INPUT 1 ----------
+
+PARALELO 2
+
+real	0m0,481s
+user	0m2,628s
+sys	0m0,000s
+
+PARALELO 3
+
+real	0m0,768s
+user	0m1,894s
+sys	0m0,000s
+
+---------- INPUT 2 ----------
+
+PARALELO 2

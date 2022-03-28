@@ -1,0 +1,15 @@
+#!/bin/bash
+OUT_FILE="test.out"
+
+rm -f ${OUT_FILE}
+for i in $(seq 1 20)
+do
+    echo "---------- INPUT ${i} ----------" | tee -a ${OUT_FILE}
+    # echo -e "\nSEQUENCIAL" | tee -a ${OUT_FILE} 
+    # { time ../seq < ../inputs/inp_${i}.in ; } 2>> ${OUT_FILE}
+    echo -e "\nPARALELO 2" | tee -a ${OUT_FILE}
+    { time ../par2 < ../inputs/inp_${i}.in ; } 2>> ${OUT_FILE}
+    echo -e "\nPARALELO 3" | tee -a ${OUT_FILE}
+    { time ../par3 < ../inputs/inp_${i}.in ; } 2>> ${OUT_FILE}
+    echo "" | tee -a ${OUT_FILE}
+done

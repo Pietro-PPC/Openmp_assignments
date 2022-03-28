@@ -1,0 +1,6 @@
+#!/bin/bash
+for i in $(seq 1 20) 
+do 
+    ./a.out $1 20 > inp_${i}.in 
+    sleep 1
+done
