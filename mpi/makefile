@@ -1,10 +1,15 @@
-all: hello
+LDLIBS= -lm
+
+all: knapsack
+
+knapsack: knapsack.c
+	mpicc knapsack.c -o knapsack $(LDLIBS)
 
 hello: hello.c
-	mpicc hello.c -o hello
+	mpicc hello.c -lm -o hello
 
-run: hello
-	mpirun --hostfile hosts -np 4 ./hello
+cabele: cod_cabele.c
+	mpicc cod_cabele.c -o cabele
 
-run_local: hello
-	mpirun -np 4 ./hello
+run: knapsack
+	mpirun -np 5 ./knapsack
