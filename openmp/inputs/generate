@@ -1,0 +1,17 @@
+#!/bin/bash
+if (( $# != 2))
+then
+    echo "Chamada do script:"
+    echo "./generate <tamanho entrada> <num entradas>"
+    exit 1
+fi
+
+TAM_INP=$1
+N_INPS=$2
+
+mkdir inps_${TAM_INP}
+for i in $(seq 1 ${N_INPS}) 
+do 
+    ./a.out $TAM_INP 20 > inps_${TAM_INP}/inp_${i}.in 
+    sleep 1
+done

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if (( $# != 2))
+then
+    echo "Chamada do script:"
+    echo "./generate <tamanho entrada> <num entradas>"
+    exit 1
+fi
+
+TAM_INP=$1
+N_INPS=$2
+N_CORES=8
+
+OUT_FILE="${N_CORES}C_${TAM_INP}i.out"
+
+echo "${N_INPS}" >> ${OUT_FILE}
+for i in $(seq 1 ${N_INPS})
+do
+    echo "---------- INPUT ${i} ----------"
+    echo -e "\nSEQUENCIAL"
+    ../seq < ../inputs/inps_${TAM_INP}/inp_${i}.in >> ${OUT_FILE}
+    echo -e "\nPARALELO" 
+    ../par3 < ../inputs/inps_${TAM_INP}/inp_${i}.in >> ${OUT_FILE}
+done
+
+# { time ../par2 < ../inputs/inp_${i}.in ; } 2>> ${OUT_FILE}

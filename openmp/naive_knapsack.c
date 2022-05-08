@@ -2,28 +2,26 @@
 of 0-1 Knapsack problem */
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/time.h>
  
 // A utility function that returns
 // maximum of two integers
 int max(int a, int b) { return (a > b) ? a : b; }
  
+double time_dif(struct timeval start, struct timeval end){
+    return ( (end.tv_sec - start.tv_sec) * 1e6 + (double) (end.tv_usec - start.tv_usec) )/ 1e6 ;
+}
+
 // Returns the maximum value that can be
 // put in a knapsack of capacity W
 int knapSack(int W, int wt[], int val[], int n)
 {
-    // Base Case
     if (n == 0 || W == 0)
         return 0;
  
-    // If weight of the nth item is more than
-    // Knapsack capacity W, then this item cannot
-    // be included in the optimal solution
     if (wt[n - 1] > W)
         return knapSack(W, wt, val, n - 1);
  
-    // Return the maximum of two cases:
-    // (1) nth item included
-    // (2) not included
     else
         return max(
             val[n - 1]
@@ -31,7 +29,7 @@ int knapSack(int W, int wt[], int val[], int n)
                            wt, val, n - 1),
             knapSack(W, wt, val, n - 1));
 }
- 
+
 // Driver program to test above function
 int main()
 {
